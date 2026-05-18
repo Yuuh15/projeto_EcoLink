@@ -4,9 +4,16 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login.php');
+    $_SESSION['aviso'] = 1;
+    header('Location: index.php');
     exit;
 }
+elseif ($_SESSION['usuario_tipo'] === 'criador') {
+    $_SESSION['aviso'] = 2;
+    header('Location: index.php');
+    exit;
+}
+
 
 $usuario_id = $_SESSION['usuario_id'];
 
@@ -59,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscrever'])) {
         $pdo->commit();
         
         $_SESSION['sucesso_inscricao'] = 'Inscrição realizada com sucesso!';
-        header('Location: dashboard_usuario.php');
+        header('Location: index.php');
         exit;
         
     } catch (PDOException $e) {
         $pdo->rollBack();
         $_SESSION['erro_inscricao'] = 'Erro ao realizar inscrição. Tente novamente.';
-        header('Location: listar_eventos.php');
+        header('Location: index.php');
         exit;
     }
 }
 
-header('Location: listar_eventos.php');
+header('Location: index.php');
 exit;
 ?>

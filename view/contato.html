@@ -4,65 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecolink - Contato</title>
-    <link rel="stylesheet" href="contato.css">
+    <link rel="stylesheet" href="../css/contato.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">♻️ EcoLink</div>
+        <div class="logo"><a href="../php/index.php">♻️ EcoLink</a></div>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a class="itens" href="../view/sobren.html">sobre</a></li>
+                <li><a href="../php/login.php"><img class="img" src="../files/avatar_usuario.jpeg"></a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-    <div class="contact-wrapper">
-        
-        <div class="contact-info">
-            <div class="icon-box-mail">
-                <svg viewBox="0 0 24 24" fill="#475569" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v2l8 5 8-5V6l-8 5-8-5z"/>
-                </svg>
-            </div>
-        </div>
+    <!-- MENSAGEM_AREA -->
 
-        <div class="contact-card">
-            <h1>Contate-nos</h1>
-            
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>Nome completo</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email">
-                    </div>
-                </div>
+  <section class="container">
 
-                <div class="message-row">
-                    <div class="input-group">
-                        <label>Mensagem</label>
-                        <textarea rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn-send">Enviar</button>
-                </div>
+    <div class="left">
+      <div class="mail-box"></div>
+    </div>
+
+    <div class="contact-box">
+      <h1>Contate-nos</h1>
+
+      <div class="contact-content">
+
+        <div class="form-area">
+            <form method="post" action="">
+                <label>Nome completo</label>
+                <input type="text" name="nome">
+
+                <label>Email</label>
+                <input type="email" name="email">
+
+                <label>Mensagem</label>
+                <input type="password" name="mensagem" required>
+
+                <button class="btn" type="submit">Enviar</button>
             </form>
         </div>
 
-    </div>
-</main>
 
-    <footer class="footer">
+    </section>
+
+        <footer class="footer">
         <div class="footer-top">
-            <span class="logo-footer">Ecolink</span>
+            <span class="logo">Ecolink</span>
             <div class="footer-links">
-                <a href="#">Sobre Nós</a>
-                <a href="#">Contato</a>
+                <a href="../php/login.php">Login</a>
             </div>
             <div class="social-icons">
                 <span>📸</span> <span>🔵</span> <span>🐦</span>

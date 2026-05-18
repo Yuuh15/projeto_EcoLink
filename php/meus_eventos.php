@@ -101,7 +101,6 @@ ob_start();
 include '../view/meus_eventos.html';
 $html = ob_get_clean();
 
-$html = str_replace('<!-- NOME_USUARIO -->', htmlspecialchars($_SESSION['usuario_nome']), $html);
 $html = str_replace('<!-- MENSAGEM_AREA -->', $mensagem, $html);
 $html = str_replace('<!-- LISTA_EVENTOS -->', $eventos_html, $html);
 $html = str_replace('<!-- MENSAGEM_AREA -->', $mensagem, $html);

@@ -6,6 +6,7 @@ require_once '../config/database.php';
 $erro = '';
 
 if(isset($_SESSION['aviso'])){
+    session_destroy();
     echo "<script>
     alert('Email de criador, faça o login colocando o CPNJ e email');
     window.location.href='login_criador.php';
@@ -43,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $_SESSION['criador_telefone'] = $criador['telefone'];
                 $_SESSION['criador_cnpj'] = $criador['cnpj'];
 
-                header('Location: dashboard_criador.php');
+                header('Location: index.php');
 
                 exit;
             } else {

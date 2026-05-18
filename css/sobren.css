@@ -49,6 +49,25 @@ body::before {
     text-decoration: none;
 }
 
+nav .itens{
+    position: relative;
+    top: 20px;
+}
+
+.navbar .img{
+    position: relative;
+    top: 5px;
+    max-height: 60px;
+    width: 60px;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
 .navbar ul {
     display: flex;
     list-style: none;

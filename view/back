@@ -1,0 +1,60 @@
+                <article class="card">
+
+                    <div class="card-conteudo">
+                        <p class="data-evento">15 de Maio, 2024</p>
+                        <h3>Limpeza da Praia da Reserva</h3>
+                        <p>Vamos unir forças para retirar resíduos plásticos e proteger a fauna marinha local.</p>
+                        <a href="#" class="btn-inscrever">Quero Participar</a>
+                    </div>
+                </article>
+
+                <!-- CARD 2 -->
+                <article class="card">
+
+                    <div class="card-conteudo">
+                        <p class="data-evento">22 de Maio, 2024</p>
+                        <h3>Compostagem Doméstica</h3>
+                        <p>Aprenda a transformar seu lixo orgânico em adubo rico.</p>
+                        <a href="#" class="btn-inscrever">Inscrever-se</a>
+                    </div>
+                </article>
+
+                <!-- CARD 3 -->
+                <article class="card">
+                    <div class="card-conteudo">
+                        <p class="data-evento">05 de Junho, 2024</p>
+                        <h3>Mercado Verde Local</h3>
+                        <p>Apoie produtores locais e alimentos saudáveis.</p>
+                        <a href="#" class="btn-inscrever">Ver Detalhes</a>
+                    </div>
+                </article>
+
+                <!-- CARD 4 -->
+                <article class="card">
+                    <div class="card-conteudo">
+                        <p class="data-evento">10 de Junho, 2024</p>
+                        <h3>Plantio de Árvores</h3>
+                        <p>Ajude a reflorestar áreas urbanas.</p>
+                        <a href="#" class="btn-inscrever">Participar</a>
+                    </div>
+                </article>
+
+                <!-- CARD 5 -->
+                <article class="card">
+                    <div class="card-conteudo">
+                        <p class="data-evento">15 de Junho, 2024</p>
+                        <h3>Feira Sustentável</h3>
+                        <p>Produtos ecológicos e orgânicos.</p>
+                        <a href="#" class="btn-inscrever">Ver</a>
+                    </div>
+                </article>
+
+                <!-- CARD 6 -->
+                <article class="card">
+                    <div class="card-conteudo">
+                        <p class="data-evento">20 de Junho, 2024</p>
+                        <h3>Workshop Ambiental</h3>
+                        <p>Educação ambiental prática.</p>
+                        <a href="#" class="btn-inscrever">Entrar</a>
+                    </div>
+                </article>

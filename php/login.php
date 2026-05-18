@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_tipo'] = $usuario['tipo'];
                 
 
-                header('Location: dashboard_usuario.php');
+                header('Location: index.php');
                 
                 exit;
             } else {
