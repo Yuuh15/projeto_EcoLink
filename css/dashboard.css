@@ -156,3 +156,92 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .container {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .card {
+        padding: 20px 15px;
+    }
+
+    .user-info {
+        padding: 15px;
+    }
+
+    .eventos-section {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .eventos-section h3 {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .form-evento {
+        padding: 15px;
+    }
+
+    .btn-criar {
+        width: 100%;
+    }
+
+    .card-evento {
+        padding: 12px;
+    }
+
+    .card-evento h4 {
+        font-size: 16px;
+        padding-right: 60px;
+    }
+
+    .btn-deletar {
+        top: 10px;
+        right: 10px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px 10px;
+    }
+
+    .card-evento {
+        padding: 10px;
+    }
+
+    .card-evento h4 {
+        font-size: 15px;
+    }
+
+    .btn-deletar {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}

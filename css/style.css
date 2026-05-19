@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2c6d45 0%, #68a833 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -43,7 +43,7 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #1565c0;
     color: white;
     padding: 15px 30px;
     display: flex;
@@ -332,17 +332,254 @@ button:hover {
 
 /* Responsivo */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        margin: 80px auto 20px;
+        padding: 25px 20px;
+        max-width: 95%;
+    }
+
+    .container2 {
+        margin: 70px auto 20px;
+        padding: 25px 20px;
+        max-width: 95%;
+    }
+
+    .container-large {
+        margin-top: 70px;
+        padding: 0 10px;
+    }
+
     .eventos-grid {
         grid-template-columns: 1fr;
     }
     
     .header {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo a, h2 {
+        margin-left: 0;
+        font-size: 18px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .user-name {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .logout-btn {
+        padding: 6px 15px;
+        font-size: 14px;
     }
     
     .stats {
         flex-direction: column;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card h3 {
+        font-size: 28px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .menu a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .card-evento {
+        padding: 15px;
+    }
+
+    .card-evento h4 {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .perfil-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .perfil-imagem img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-info h3 {
+        font-size: 20px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .perfil-criador-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .perfil-criador-imagem img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-criador-info h3 {
+        font-size: 20px;
+    }
+
+    .info-criador-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-criador-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .stats-criador {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stat-criador-card {
+        min-width: 100%;
+    }
+
+    .badge-criador {
+        display: inline-block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        margin: 70px auto 15px;
+        padding: 20px 12px;
+        max-width: 100%;
+    }
+
+    .container2 {
+        margin: 60px auto 15px;
+        padding: 20px 12px;
+        max-width: 100%;
+    }
+
+    .container-large {
+        margin-top: 60px;
+        padding: 0 5px;
+    }
+
+    .header {
+        padding: 8px 10px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .logo a, h2 {
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .subtitulo {
+        font-size: 12px;
+    }
+
+    input, select, textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .perfil-info h3 {
+        font-size: 18px;
+    }
+
+    .perfil-criador-info h3 {
+        font-size: 18px;
+    }
+
+    .stat-card h3 {
+        font-size: 22px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-criador-card .numero {
+        font-size: 22px;
+    }
+
+    .stat-criador-card {
+        padding: 15px;
+    }
+
+    .eventos-grid {
+        gap: 12px;
+    }
+
+    .card-evento {
+        padding: 12px;
+    }
+
+    .badge-inscrito, .retirar-inscricao {
+        font-size: 11px;
+        padding: 4px 8px;
     }
 }
 
@@ -592,28 +829,6 @@ button:hover {
 
 .stat-criador-card.laranja .numero {
     color: #e67e22;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-    .perfil-criador-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .info-criador-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .info-criador-label {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-    
-    .stats-criador {
-        flex-direction: column;
-    }
 }
 
 .logo a, h2{

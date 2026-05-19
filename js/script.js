@@ -14,9 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const visibleCards = 3;
     let index = visibleCards;
     let cardWidth;
+    let isMobile = window.innerWidth <= 768;
 
     // Função para (re)inicializar o Carrossel
     function initCarousel() {
+        if (isMobile) {
+            // No mobile, mostra todos os cards empilhados verticalmente
+            track.innerHTML = "";
+            originalCards.forEach(card => track.append(card.cloneNode(true)));
+            track.style.transition = "none";
+            track.style.transform = "none";
+            nextBtn.style.display = "none";
+            prevBtn.style.display = "none";
+            return;
+        }
+
         track.innerHTML = "";
         
         // Clonagem para efeito infinito
@@ -48,20 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        track.style.transition = "none";
+        track.style.transform = "none";
+        track.innerHTML = "";
+        
         const filtered = originalCards.filter(card => {
             const title = card.querySelector('h3').innerText.toLowerCase();
-            const desc = card.querySelector('p:not(.data-evento)').innerText.toLowerCase();
+            const desc = card.querySelector('.desc, p:not(.data-evento)').innerText.toLowerCase();
             return title.includes(term) || desc.includes(term);
         });
 
-        track.style.transition = "none";
-        track.style.transform = `translateX(0)`;
-        track.innerHTML = "";
-        
         if (filtered.length > 0) {
             filtered.forEach(card => track.append(card.cloneNode(true)));
         } else {
-            track.innerHTML = "<p style='padding: 20px; color: white;'>Nenhum evento encontrado.</p>";
+            track.innerHTML = "<p style='padding: 20px; color: #333; text-align: center;'>Nenhum evento encontrado.</p>";
         }
 
         nextBtn.style.display = "none";
@@ -80,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     nextBtn.addEventListener('click', () => {
+        if (isMobile) return;
         const allCards = track.querySelectorAll('.card');
         if (index >= allCards.length - visibleCards) return;
         index++;
@@ -87,17 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     prevBtn.addEventListener('click', () => {
+        if (isMobile) return;
         if (index <= 0) return;
         index--;
         moveCarousel();
     });
 
     function moveCarousel() {
+        if (isMobile) return;
         track.style.transition = "transform 0.4s ease-in-out";
         track.style.transform = `translateX(-${index * cardWidth}px)`;
     }
 
     track.addEventListener('transitionend', () => {
+        if (isMobile) return;
         const allCards = track.querySelectorAll('.card');
         // Se houver busca ativa, não aplica a lógica de loop
         if (searchInput.value !== "") return; 
@@ -119,7 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Recalcula largura se a janela mudar de tamanho
     window.addEventListener('resize', () => {
-        cardWidth = originalCards[0].offsetWidth + 20;
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        const wasMobile = isMobile;
+        isMobile = window.innerWidth <= 768;
+        
+        if (wasMobile !== isMobile) {
+            // Modo mudou, reinicializa
+            initCarousel();
+        } else if (!isMobile) {
+            // Ainda desktop, só recalcula largura
+            cardWidth = originalCards[0].offsetWidth + 20;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
     });
 });

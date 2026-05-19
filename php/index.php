@@ -81,33 +81,30 @@ try {
             $vagas_restantes = $evento['capacidade_maxima'] - $inscritos_atuais;
             $vagas_disponiveis = $vagas_restantes > 0;
             
-            $botao = '';
-            if (isset($status[$i]['meu_status'])) {
-                $botao = '<button class="btn-inscrever" disabled>✓ Você já está inscrito</button>';
-            } elseif (!$vagas_disponiveis) {
-                $botao = '<button class="btn-inscrever" disabled> Esgotado</button>';
-            } else {
-                $botao = '<form method="POST" action="inscrever.php">
-                            <input type="hidden" name="evento_id" value="' . $evento['id'] . '">
-                            <button type="submit" name="inscrever" class="btn-inscrever">Inscrever-se</button>
-                          </form>'; 
-            }
-            
             $eventos_html .= '
-
                 <article class="card">
                     <div class="card-conteudo">
                         <p class="data-evento">' . $data_evento . '</p>
                         <h3>' . htmlspecialchars($evento['nome_evento']) . '</h3>
-                        <p><strong>Realizado por:</strong> ' . htmlspecialchars($evento['nome_fantasia'] ?: $evento['razao_social']) . '</p>
-                        <p class="desc">' . nl2br(htmlspecialchars($evento['descricao'])) . '</p>
+                        <p class="realizador"><strong>Realizado por:</strong> ' . htmlspecialchars($evento['nome_fantasia'] ?: $evento['razao_social']) . '</p>
+                        <div class="desc">' . nl2br(htmlspecialchars($evento['descricao'])) . '</div>
                         <p class="capacidade">Vagas: ' . $vagas_restantes . ' / ' . $evento['capacidade_maxima'] . '</p>
-                        
+                        <div class="card-actions">';
+            
+            if (isset($status[$i]['meu_status'])) {
+                $eventos_html .= '<button class="btn-inscrever" disabled>✓ Você já está inscrito</button>';
+            } elseif (!$vagas_disponiveis) {
+                $eventos_html .= '<button class="btn-inscrever" disabled>Esgotado</button>';
+            } else {
+                $eventos_html .= '<form method="POST" action="inscrever.php">
+                                    <input type="hidden" name="evento_id" value="' . $evento['id'] . '">
+                                    <button type="submit" name="inscrever" class="btn-inscrever">Inscrever-se</button>
+                                 </form>';
+            }
+            
+            $eventos_html .= '      </div>
                     </div>
-                    ' . $botao . '  
-                </article>
-                
-            ';
+                </article>';
             $i++;
         }
     } else {

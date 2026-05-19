@@ -106,3 +106,62 @@ button:hover {
 
 .link { text-align: center; margin-top: 20px; }
 a { color: #667eea; text-decoration: none; }
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .mensagem {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 25px 15px;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,17 @@
+.container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+    margin: 150px auto;
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
