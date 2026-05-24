@@ -96,15 +96,4 @@ $html = str_replace('<!-- MENSAGEM_AREA -->', $mensagem, $html);
 $html = str_replace('<!-- LISTA_EVENTOS -->', $eventos_html, $html);
 
 echo $html;
-
-
-ob_start();
-include '../view/index.html';
-$html = ob_get_clean();
-
-
-$html = str_replace('<!-- MENSAGEM_AREA -->', $mensagem, $html);
-$html = str_replace('<!--CARDS-->', $eventos_html, $html);
-
-echo $html;
 ?>

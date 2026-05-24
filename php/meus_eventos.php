@@ -64,8 +64,8 @@ try {
                 $inscritos_lista .= '<li>' . htmlspecialchars($inscrito['nome']) . ' - ' . htmlspecialchars($inscrito['email']) . '</li>';
             }
             
-            $botao = '<form method = "POST" action="remover_evento.php">
-                <input type="hidden" name="evento_id" values="'. $evento['id'] .'">
+            $botao = '<form method="POST" action="remover_evento.php">
+                <input type="hidden" name="evento_id" value="' . $evento['id'] . '">
                 <button type="submit" name="remover_eve" class="retirar-inscricao">Remover evento</button>
                 </form>';
 
