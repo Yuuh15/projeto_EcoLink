@@ -5,11 +5,45 @@
 echo "=== EcoLink Test Suite ===\n";
 echo "Running all tests...\n\n";
 
-// Run PHP unit tests
-echo "--- PHP Validation Tests ---\n";
-require_once __DIR__ . '/php/ValidationTest.php';
+$exitCode = 0;
 
-echo "\n--- Database Integration Tests ---\n";
-require_once __DIR__ . '/integration/DatabaseTest.php';
+function runTestSuite($name, $file) {
+    echo "--- $name ---\n";
+    ob_start();
+    require_once $file;
+    $output = ob_get_clean();
+    echo $output;
+    
+    // Check if the test script exited with error
+    $lastExit = preg_match('/Failed: (\d+)/', $output, $m) ? (int)$m[1] : 0;
+    return $lastExit;
+}
 
-echo "\n=== All Tests Complete ===\n";
+$failures = 0;
+
+// PHP unit tests
+$failures += runTestSuite('PHP Validation Tests', __DIR__ . '/php/ValidationTest.php');
+
+echo "\n";
+
+// Database integration tests
+$failures += runTestSuite('Database Integration Tests', __DIR__ . '/integration/DatabaseTest.php');
+
+echo "\n";
+
+// Functional tests
+$failures += runTestSuite('Functional Tests', __DIR__ . '/functional/FunctionalTest.php');
+
+echo "\n";
+
+// Use case tests
+$failures += runTestSuite('Use Case Tests', __DIR__ . '/usecase/UseCaseTest.php');
+
+echo "\n=== All Tests Complete ===\n\n";
+
+if ($failures > 0) {
+    echo "Some tests failed. Check output above for details.\n";
+    exit(1);
+} else {
+    echo "All tests passed!\n";
+}
